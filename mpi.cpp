@@ -55,8 +55,9 @@ int main(int argc, char* argv[]) {
         printf("matrix size is empty\n");
         return 0;
     }
-
-    genMatrix(matr);
+    
+    if (procNum == 0)
+        genMatrix(matr);
 
     MPI_Bcast(matr.data, matr.n * matr.m, MPI_INT, 0, MPI_COMM_WORLD);
 
